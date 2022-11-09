@@ -3,7 +3,7 @@ import 'package:flame/game.dart';
 import 'package:flame/image_composition.dart';
 import 'package:flame_simple_platformer/game/level/level.dart';
 
-class SimplePlatfomer extends FlameGame {
+class SimplePlatfomer extends FlameGame with HasCollidables {
   Level? _currentLevel;
   late Image spriteSheet;
 

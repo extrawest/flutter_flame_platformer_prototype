@@ -7,7 +7,7 @@ void main() {
   runApp(const MyApp());
 }
 
-final _game = SimplePlatfomer();
+final _game = SimplePlatformer();
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Scaffold(body: GameWidget(game: kDebugMode ? SimplePlatfomer() : _game)),
+      home: Scaffold(body: GameWidget(game: kDebugMode ? SimplePlatformer() : _game)),
     );
   }
 }

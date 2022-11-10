@@ -1,7 +1,7 @@
+import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
-import 'package:flame/geometry.dart';
 
-class Platform extends PositionComponent with HasHitboxes, Collidable {
+class Platform extends PositionComponent with CollisionCallbacks {
   Platform({
     required Vector2 position,
     required Vector2 size,
@@ -20,8 +20,7 @@ class Platform extends PositionComponent with HasHitboxes, Collidable {
 
   @override
   Future<void>? onLoad() {
-    collidableType = CollidableType.passive;
-    addHitbox(HitboxRectangle());
+    add(RectangleHitbox()..collisionType = CollisionType.passive);
     return super.onLoad();
   }
 }

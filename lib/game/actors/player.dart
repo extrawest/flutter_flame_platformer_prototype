@@ -1,11 +1,10 @@
+import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
-import 'package:flame/geometry.dart';
 import 'package:flame/image_composition.dart';
-import 'package:flame/input.dart';
 import 'package:flame_simple_platformer/game/actors/platform.dart';
 import 'package:flutter/services.dart';
 
-class Player extends SpriteComponent with HasHitboxes, Collidable, KeyboardHandler {
+class Player extends SpriteComponent with CollisionCallbacks, KeyboardHandler {
   int _hAxisInput = 0;
   bool _jumpInput = false;
   bool _isOnGround = false;
@@ -47,7 +46,7 @@ class Player extends SpriteComponent with HasHitboxes, Collidable, KeyboardHandl
 
   @override
   Future<void>? onLoad() {
-    addHitbox(HitboxCircle());
+    add(CircleHitbox());
     return super.onLoad();
   }
 
@@ -91,7 +90,7 @@ class Player extends SpriteComponent with HasHitboxes, Collidable, KeyboardHandl
   }
 
   @override
-  void onCollision(Set<Vector2> intersectionPoints, Collidable other) {
+  void onCollision(Set<Vector2> intersectionPoints, PositionComponent other) {
     if (other is Platform) {
       if (intersectionPoints.length == 2) {
         final mid = (intersectionPoints.elementAt(0) + intersectionPoints.elementAt(1)) / 2;

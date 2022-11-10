@@ -1,5 +1,6 @@
 import 'package:flame/game.dart';
 import 'package:flame_simple_platformer/game/game.dart';
+import 'package:flame_simple_platformer/overlays/main_menu.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
@@ -19,7 +20,15 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Scaffold(body: GameWidget(game: kDebugMode ? SimplePlatformer() : _game)),
+      home: Scaffold(
+        body: GameWidget<SimplePlatformer>(
+          game: kDebugMode ? SimplePlatformer() : _game,
+          overlayBuilderMap: {
+            MainMenu.id: (context, game) => MainMenu(gameRef: game),
+          },
+          initialActiveOverlays: const [MainMenu.id],
+        ),
+      ),
     );
   }
 }

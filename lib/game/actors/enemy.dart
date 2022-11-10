@@ -33,11 +33,13 @@ class Enemy extends SpriteComponent with CollisionCallbacks, HasGameRef<SimplePl
           MoveToEffect(
             targetPosition,
             EffectController(speed: 200),
-          )..onComplete = () => flipHorizontallyAroundCenter(),
+            onComplete: () => flipHorizontallyAroundCenter(),
+          ),
           MoveToEffect(
             position + Vector2(32, 0),
             EffectController(speed: 200),
-          )..onComplete = () => flipHorizontallyAroundCenter(),
+            onComplete: () => flipHorizontallyAroundCenter(),
+          ),
         ],
         infinite: true,
       );

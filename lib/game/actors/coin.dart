@@ -53,9 +53,8 @@ class Coin extends SpriteComponent with CollisionCallbacks, HasGameRef<SimplePla
       add(
         OpacityEffect.fadeOut(
           LinearEffectController(0.3),
-        )..onComplete = () {
-            add(RemoveEffect());
-          },
+          onComplete: () => add(RemoveEffect()),
+        ),
       );
       gameRef.playerData.score.value += 1;
     }

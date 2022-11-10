@@ -3,9 +3,10 @@ import 'package:flame/components.dart';
 import 'package:flame/effects.dart';
 import 'package:flame/image_composition.dart';
 import 'package:flame_simple_platformer/game/actors/player.dart';
+import 'package:flame_simple_platformer/game/game.dart';
 import 'package:flutter/animation.dart';
 
-class Coin extends SpriteComponent with CollisionCallbacks {
+class Coin extends SpriteComponent with CollisionCallbacks, HasGameRef<SimplePlatformer> {
   Coin(
     Image image, {
     Vector2? srcSize,
@@ -56,6 +57,7 @@ class Coin extends SpriteComponent with CollisionCallbacks {
             add(RemoveEffect());
           },
       );
+      gameRef.playerData.score.value += 1;
     }
     super.onCollisionStart(intersectionPoints, other);
   }

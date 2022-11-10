@@ -6,6 +6,8 @@ import 'package:flame_simple_platformer/game/actors/player.dart';
 import 'package:flame_simple_platformer/game/game.dart';
 
 class Enemy extends SpriteComponent with CollisionCallbacks, HasGameRef<SimplePlatformer> {
+  static final Vector2 _up = Vector2(0, -1);
+
   Enemy(
     Image image, {
     Vector2? srcSize,
@@ -56,9 +58,18 @@ class Enemy extends SpriteComponent with CollisionCallbacks, HasGameRef<SimplePl
   @override
   void onCollisionStart(Set<Vector2> intersectionPoints, PositionComponent other) {
     if (other is Player) {
-      other.hit();
-      if (gameRef.playerData.health.value > 0) {
-        gameRef.playerData.health.value -= 1;
+      final playerDir = (other.absoluteCenter - absoluteCenter).normalized();
+      if (playerDir.dot(_up) > 0.85) {
+        add(OpacityEffect.fadeOut(
+          LinearEffectController(0.2),
+          onComplete: () => removeFromParent(),
+        ));
+        other.jump();
+      } else {
+        other.hit();
+        if (gameRef.playerData.health.value > 0) {
+          gameRef.playerData.health.value -= 1;
+        }
       }
     }
     super.onCollisionStart(intersectionPoints, other);

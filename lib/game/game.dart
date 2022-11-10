@@ -4,10 +4,13 @@ import 'package:flame/image_composition.dart';
 import 'package:flame/input.dart';
 import 'package:flame_simple_platformer/game/level/level.dart';
 import 'package:flame_simple_platformer/hud/hud.dart';
+import 'package:flame_simple_platformer/model/player_data.dart';
 
 class SimplePlatformer extends FlameGame with HasCollisionDetection, HasKeyboardHandlerComponents {
   Level? _currentLevel;
   late Image spriteSheet;
+
+  final playerData = PlayerData();
 
   @override
   Future<void>? onLoad() async {

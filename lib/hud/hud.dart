@@ -28,6 +28,14 @@ class Hud extends Component with HasGameRef<SimplePlatformer> {
         position: Vector2(healthTextComponent.position.x - healthTextComponent.size.x - 5, 5));
     add(playerSprite);
 
+    gameRef.playerData.score.addListener(() {
+      scoreComponent.text = 'Score: ${gameRef.playerData.score.value}';
+    });
+
+    gameRef.playerData.health.addListener(() {
+      healthTextComponent.text = 'x${gameRef.playerData.health.value}';
+    });
+
     return super.onLoad();
   }
 }

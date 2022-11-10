@@ -18,7 +18,10 @@ class Level extends Component with HasGameRef<SimplePlatformer> {
 
   @override
   Future<void>? onLoad() async {
-    final level = await TiledComponent.load(levelName, Vector2.all(32));
+    final level = await TiledComponent.load(
+      levelName,
+      Vector2.all(32),
+    );
     add(level);
 
     _levelBounds = Rect.fromLTWH(
@@ -34,16 +37,15 @@ class Level extends Component with HasGameRef<SimplePlatformer> {
     return super.onLoad();
   }
 
+  // This method takes care of spawning
+  // all the actors in the game world.
   void _spawnActors(RenderableTiledMap tileMap) {
     final platformsLayer = tileMap.getLayer<ObjectGroup>('Platforms');
 
     for (final platformObject in platformsLayer!.objects) {
       final platform = Platform(
         position: Vector2(platformObject.x, platformObject.y),
-        size: Vector2(
-          platformObject.width,
-          platformObject.height,
-        ),
+        size: Vector2(platformObject.width, platformObject.height),
       );
       add(platform);
     }
@@ -51,44 +53,62 @@ class Level extends Component with HasGameRef<SimplePlatformer> {
     final spawnPointsLayer = tileMap.getLayer<ObjectGroup>('SpawnPoints');
 
     for (final spawnPoint in spawnPointsLayer!.objects) {
+      final position = Vector2(spawnPoint.x, spawnPoint.y - spawnPoint.height);
+      final size = Vector2(spawnPoint.width, spawnPoint.height);
+
       switch (spawnPoint.name) {
         case 'Player':
           _player = Player(
             gameRef.spriteSheet,
-            position: Vector2(spawnPoint.x, spawnPoint.y),
-            size: Vector2(spawnPoint.width, spawnPoint.height),
-            levelBounds: _levelBounds,
             anchor: Anchor.center,
+            levelBounds: _levelBounds,
+            position: position,
+            size: size,
           );
           add(_player);
+
           break;
+
         case 'Coin':
           final coin = Coin(
             gameRef.spriteSheet,
-            position: Vector2(spawnPoint.x, spawnPoint.y),
-            size: Vector2(spawnPoint.width, spawnPoint.height),
+            position: position,
+            size: size,
           );
           add(coin);
+
           break;
+
         case 'Enemy':
           final enemy = Enemy(
             gameRef.spriteSheet,
-            position: Vector2(spawnPoint.x, spawnPoint.y),
-            size: Vector2(spawnPoint.width, spawnPoint.height),
+            position: position,
+            size: size,
           );
           add(enemy);
+
           break;
+
         case 'Door':
           final door = Door(
             gameRef.spriteSheet,
-            position: Vector2(spawnPoint.x, spawnPoint.y),
-            size: Vector2(spawnPoint.width, spawnPoint.height),
+            position: position,
+            size: size,
+            onPlayerEnter: () {
+              gameRef.loadLevel(spawnPoint.properties.first.value);
+            },
           );
           add(door);
+
+          break;
       }
     }
   }
 
+  // This method is responsible for making the camera
+  // follow the player component and also for keeping
+  // the camera within level bounds.
+  /// NOTE: Call only after [_spawnActors].
   void _setupCamera() {
     gameRef.camera.followComponent(_player);
     gameRef.camera.worldBounds = _levelBounds;

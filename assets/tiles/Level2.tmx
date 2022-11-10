@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.9" tiledversion="1.9.2" orientation="orthogonal" renderorder="right-down" width="30" height="12" tilewidth="32" tileheight="32" infinite="0" nextlayerid="3" nextobjectid="35">
+<map version="1.9" tiledversion="1.9.2" orientation="orthogonal" renderorder="right-down" width="30" height="12" tilewidth="32" tileheight="32" infinite="0" nextlayerid="4" nextobjectid="40">
  <tileset firstgid="1" source="Spritessheet.tsx"/>
  <layer id="1" name="Tile Layer 1" width="30" height="12">
   <data encoding="base64">
@@ -7,31 +7,29 @@
   </data>
  </layer>
  <objectgroup id="2" name="SpawnPoints">
-  <object id="1" class="Player" x="32" y="160" width="32" height="32"/>
-  <object id="4" class="Enemy" x="160" y="288" width="32" height="32"/>
-  <object id="5" class="Enemy" x="608" y="96" width="32" height="32"/>
-  <object id="17" class="Enemy" x="384" y="288" width="32" height="32"/>
-  <object id="18" class="Enemy" x="480" y="288" width="32" height="32"/>
-  <object id="19" class="Enemy" x="576" y="288" width="32" height="32"/>
-  <object id="16" class="Enemy" x="736" y="96" width="32" height="32"/>
-  <object id="23" class="Enemy" x="640" y="96" width="32" height="32"/>
-  <object id="10" class="Coin" x="256" y="128" width="32" height="32"/>
-  <object id="13" class="Coin" x="896" y="96" width="32" height="32"/>
-  <object id="14" class="Coin" x="896" y="192" width="32" height="32"/>
-  <object id="15" class="Coin" x="800" y="64" width="32" height="32"/>
-  <object id="20" gid="1" x="32" y="192" width="32" height="32"/>
-  <object id="21" gid="2" x="160" y="320" width="32" height="32"/>
-  <object id="22" gid="2" x="608" y="128" width="32" height="32"/>
-  <object id="24" gid="4" x="736" y="128" width="32" height="32"/>
-  <object id="25" gid="4" x="640" y="128" width="32" height="32"/>
-  <object id="26" gid="4" x="800" y="96" width="32" height="32"/>
-  <object id="27" gid="4" x="896" y="128" width="32" height="32"/>
-  <object id="28" gid="4" x="896" y="224" width="32" height="32"/>
-  <object id="29" gid="4" x="480" y="320" width="32" height="32"/>
-  <object id="30" gid="4" x="384" y="320" width="32" height="32"/>
-  <object id="31" gid="4" x="576" y="320" width="32" height="32"/>
-  <object id="32" gid="4" x="256" y="160" width="32" height="32"/>
-  <object id="33" x="896" y="256" width="64" height="64"/>
-  <object id="34" gid="3" x="896" y="320" width="64" height="64"/>
+  <object id="20" name="Player" gid="1" x="32" y="192" width="32" height="32"/>
+  <object id="21" name="Enemy" gid="2" x="160" y="320" width="32" height="32"/>
+  <object id="22" name="Enemy" gid="2" x="608" y="128" width="32" height="32"/>
+  <object id="24" name="Coin" gid="4" x="736" y="128" width="32" height="32"/>
+  <object id="25" name="Coin" gid="4" x="640" y="128" width="32" height="32"/>
+  <object id="26" name="Coin" gid="4" x="800" y="96" width="32" height="32"/>
+  <object id="27" name="Coin" gid="4" x="896" y="128" width="32" height="32"/>
+  <object id="28" name="Coin" gid="4" x="896" y="224" width="32" height="32"/>
+  <object id="29" name="Coin" gid="4" x="480" y="320" width="32" height="32"/>
+  <object id="30" name="Coin" gid="4" x="384" y="320" width="32" height="32"/>
+  <object id="31" name="Coin" gid="4" x="576" y="320" width="32" height="32"/>
+  <object id="32" name="Coin" gid="4" x="256" y="160" width="32" height="32"/>
+  <object id="34" name="Door" gid="3" x="896" y="320" width="64" height="64">
+   <properties>
+    <property name="NextLevel" value="Level1.tmx"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup id="3" name="Platforms">
+  <object id="35" x="0" y="192" width="96" height="192"/>
+  <object id="36" x="96" y="320" width="864" height="64"/>
+  <object id="37" x="608" y="128" width="160" height="192"/>
+  <object id="38" x="352" y="224" width="256" height="32"/>
+  <object id="39" x="192" y="0" width="32" height="192"/>
  </objectgroup>
 </map>

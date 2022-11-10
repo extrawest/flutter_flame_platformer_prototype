@@ -10,7 +10,7 @@ class Player extends SpriteComponent with CollisionCallbacks, KeyboardHandler {
   bool _isOnGround = false;
 
   final double _gravity = 10;
-  final double _moveSpeed = 200;
+  final double _moveSpeed = 300;
   final double _jumpSpeed = 320;
   final Vector2 _velocity = Vector2.zero();
   final Vector2 _up = Vector2(0, -1);

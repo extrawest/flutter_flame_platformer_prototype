@@ -6,10 +6,11 @@ import 'package:flame_simple_platformer/game/actors/enemy.dart';
 import 'package:flame_simple_platformer/game/actors/platform.dart';
 import 'package:flame_simple_platformer/game/actors/player.dart';
 import 'package:flame_simple_platformer/game/game.dart';
+import 'package:flame_simple_platformer/model/gameplay.dart';
 import 'package:flame_tiled/flame_tiled.dart';
 import 'package:tiled/tiled.dart';
 
-class Level extends Component with HasGameRef<SimplePlatformer> {
+class Level extends Component with HasGameRef<SimplePlatformer>, ParentIsA<GamePlay> {
   final String levelName;
   late Player _player;
   late Rect _levelBounds;
@@ -98,7 +99,7 @@ class Level extends Component with HasGameRef<SimplePlatformer> {
             position: position,
             size: size,
             onPlayerEnter: () {
-              gameRef.loadLevel(spawnPoint.properties.first.value);
+              parent.loadLevel(spawnPoint.properties.first.value);
             },
           );
           add(door);

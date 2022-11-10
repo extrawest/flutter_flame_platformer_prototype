@@ -2,12 +2,10 @@ import 'package:flame/flame.dart';
 import 'package:flame/game.dart';
 import 'package:flame/image_composition.dart';
 import 'package:flame/input.dart';
-import 'package:flame_simple_platformer/game/level/level.dart';
-import 'package:flame_simple_platformer/hud/hud.dart';
+import 'package:flame_simple_platformer/model/gameplay.dart';
 import 'package:flame_simple_platformer/model/player_data.dart';
 
 class SimplePlatformer extends FlameGame with HasCollisionDetection, HasKeyboardHandlerComponents {
-  Level? _currentLevel;
   late Image spriteSheet;
 
   final playerData = PlayerData();
@@ -20,15 +18,8 @@ class SimplePlatformer extends FlameGame with HasCollisionDetection, HasKeyboard
     spriteSheet = await images.load('Spritesheet.png');
     camera.viewport = FixedResolutionViewport(Vector2(640, 330));
 
-    loadLevel('Level1.tmx');
-    add(Hud(priority: 1));
+    add(GamePlay());
 
     return super.onLoad();
-  }
-
-  void loadLevel(String levelName) {
-    _currentLevel?.removeFromParent();
-    _currentLevel = Level(levelName);
-    add(_currentLevel!);
   }
 }

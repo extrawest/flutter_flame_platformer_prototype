@@ -1,7 +1,21 @@
 import 'package:flame/components.dart';
+import 'package:flame/geometry.dart';
 import 'package:flame/image_composition.dart';
+import 'package:flame/input.dart';
+import 'package:flame_simple_platformer/game/actors/platform.dart';
+import 'package:flutter/services.dart';
 
-class Player extends SpriteComponent {
+class Player extends SpriteComponent with HasHitboxes, Collidable, KeyboardHandler {
+  int _hAxisInput = 0;
+  bool _jumpInput = false;
+  bool _isOnGround = false;
+
+  final double _gravity = 10;
+  final double _moveSpeed = 200;
+  final double _jumpSpeed = 320;
+  final Vector2 _velocity = Vector2.zero();
+  final Vector2 _up = Vector2(0, -1);
+
   Player(
     Image image, {
     Vector2? srcSize,
@@ -22,4 +36,66 @@ class Player extends SpriteComponent {
           anchor: anchor,
           priority: priority,
         );
+
+  @override
+  Future<void>? onLoad() {
+    addHitbox(HitboxCircle());
+    return super.onLoad();
+  }
+
+  @override
+  void update(double dt) {
+    _velocity.x = _hAxisInput * _moveSpeed;
+    _velocity.y += _gravity;
+
+    if (_jumpInput) {
+      if (_isOnGround) {
+        _velocity.y = -_jumpSpeed;
+        _isOnGround = false;
+      }
+      _jumpInput = false;
+    }
+
+    _velocity.y = _velocity.y.clamp(-_jumpSpeed, 150);
+
+    position += _velocity * dt;
+
+    if (_hAxisInput < 0 && scale.x > 0) {
+      flipHorizontallyAroundCenter();
+    } else if (_hAxisInput > 0 && scale.x < 0) {
+      flipHorizontallyAroundCenter();
+    }
+
+    super.update(dt);
+  }
+
+  @override
+  bool onKeyEvent(RawKeyEvent event, Set<LogicalKeyboardKey> keysPressed) {
+    _hAxisInput = 0;
+
+    _hAxisInput += keysPressed.contains(LogicalKeyboardKey.keyA) ? -1 : 0;
+    _hAxisInput += keysPressed.contains(LogicalKeyboardKey.keyD) ? 1 : 0;
+    _jumpInput = keysPressed.contains(LogicalKeyboardKey.space);
+
+    return true;
+  }
+
+  @override
+  void onCollision(Set<Vector2> intersectionPoints, Collidable other) {
+    if (other is Platform) {
+      if (intersectionPoints.length == 2) {
+        final mid = (intersectionPoints.elementAt(0) + intersectionPoints.elementAt(1)) / 2;
+        final collisionNormal = absoluteCenter - mid;
+        final separationDistance = (size.x / 2) - collisionNormal.length;
+        collisionNormal.normalize();
+
+        if (_up.dot(collisionNormal) > 0.9) {
+          _isOnGround = true;
+        }
+
+        position += collisionNormal.scaled(separationDistance);
+      }
+    }
+    super.onCollision(intersectionPoints, other);
+  }
 }

@@ -1,9 +1,10 @@
 import 'package:flame/flame.dart';
 import 'package:flame/game.dart';
 import 'package:flame/image_composition.dart';
+import 'package:flame/input.dart';
 import 'package:flame_simple_platformer/game/level/level.dart';
 
-class SimplePlatfomer extends FlameGame with HasCollidables {
+class SimplePlatfomer extends FlameGame with HasCollidables, HasKeyboardHandlerComponents {
   Level? _currentLevel;
   late Image spriteSheet;
 

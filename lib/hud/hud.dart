@@ -3,6 +3,7 @@ import 'package:flame/input.dart';
 import 'package:flame_simple_platformer/game/game.dart';
 import 'package:flame_simple_platformer/overlays/gameover_menu.dart';
 import 'package:flame_simple_platformer/overlays/pause_menu.dart';
+import 'package:flame_simple_platformer/utils/audio_manager.dart';
 
 class Hud extends Component with HasGameRef<SimplePlatformer> {
   late final TextComponent scoreTextComponent;
@@ -44,6 +45,7 @@ class Hud extends Component with HasGameRef<SimplePlatformer> {
       position: Vector2(gameRef.size.x / 2, 0),
       anchor: Anchor.topCenter,
       onPressed: () {
+        AudioManager.pauseBgm();
         gameRef.pauseEngine();
         gameRef.overlays.add(PauseMenu.id);
       },
@@ -69,6 +71,7 @@ class Hud extends Component with HasGameRef<SimplePlatformer> {
     healthTextComponent.text = 'x$healthValue';
 
     if (healthValue == 0) {
+      AudioManager.stopBgm();
       gameRef.pauseEngine();
       gameRef.overlays.add(GameOverMenu.id);
     }

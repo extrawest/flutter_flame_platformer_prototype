@@ -4,6 +4,7 @@ import 'package:flame/effects.dart';
 import 'package:flame/image_composition.dart';
 import 'package:flame_simple_platformer/game/actors/player.dart';
 import 'package:flame_simple_platformer/game/game.dart';
+import 'package:flame_simple_platformer/utils/audio_manager.dart';
 
 class Enemy extends SpriteComponent with CollisionCallbacks, HasGameRef<SimplePlatformer> {
   static final Vector2 _up = Vector2(0, -1);
@@ -58,6 +59,7 @@ class Enemy extends SpriteComponent with CollisionCallbacks, HasGameRef<SimplePl
   @override
   void onCollisionStart(Set<Vector2> intersectionPoints, PositionComponent other) {
     if (other is Player) {
+      AudioManager.playSfx('Hit_2.wav');
       final playerDir = (other.absoluteCenter - absoluteCenter).normalized();
       if (playerDir.dot(_up) > 0.85) {
         add(OpacityEffect.fadeOut(

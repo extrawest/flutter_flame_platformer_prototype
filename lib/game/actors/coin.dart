@@ -4,6 +4,7 @@ import 'package:flame/effects.dart';
 import 'package:flame/image_composition.dart';
 import 'package:flame_simple_platformer/game/actors/player.dart';
 import 'package:flame_simple_platformer/game/game.dart';
+import 'package:flame_simple_platformer/utils/audio_manager.dart';
 import 'package:flutter/animation.dart';
 
 class Coin extends SpriteComponent with CollisionCallbacks, HasGameRef<SimplePlatformer> {
@@ -50,6 +51,7 @@ class Coin extends SpriteComponent with CollisionCallbacks, HasGameRef<SimplePla
   @override
   void onCollisionStart(Set<Vector2> intersectionPoints, PositionComponent other) {
     if (other is Player) {
+      AudioManager.playSfx('Collectibles_6.wav');
       add(
         OpacityEffect.fadeOut(
           LinearEffectController(0.3),

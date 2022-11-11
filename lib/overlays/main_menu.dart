@@ -1,5 +1,6 @@
 import 'package:flame_simple_platformer/game/game.dart';
 import 'package:flame_simple_platformer/model/gameplay.dart';
+import 'package:flame_simple_platformer/overlays/settings_menu.dart';
 import 'package:flutter/material.dart';
 
 class MainMenu extends StatelessWidget {
@@ -27,7 +28,14 @@ class MainMenu extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 20),
-            SizedBox(width: 150, child: ElevatedButton(onPressed: () {}, child: const Text('Settings'))),
+            SizedBox(
+                width: 150,
+                child: ElevatedButton(
+                    onPressed: () {
+                      gameRef.overlays.remove(id);
+                      gameRef.overlays.add(SettingsMenu.id);
+                    },
+                    child: const Text('Settings'))),
           ],
         ),
       ),

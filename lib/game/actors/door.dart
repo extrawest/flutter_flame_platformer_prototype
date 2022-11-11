@@ -2,6 +2,7 @@ import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 import 'package:flame/image_composition.dart';
 import 'package:flame_simple_platformer/game/actors/player.dart';
+import 'package:flame_simple_platformer/utils/audio_manager.dart';
 
 class Door extends SpriteComponent with CollisionCallbacks {
   Function? onPlayerEnter;
@@ -37,6 +38,7 @@ class Door extends SpriteComponent with CollisionCallbacks {
   @override
   void onCollision(Set<Vector2> intersectionPoints, PositionComponent other) {
     if (other is Player) {
+      AudioManager.playSfx('Blop_1.wav');
       onPlayerEnter?.call();
     }
     super.onCollision(intersectionPoints, other);

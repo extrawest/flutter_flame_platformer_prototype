@@ -12,6 +12,9 @@ class GamePlay extends Component with HasGameRef<SimplePlatformer> {
   Future<void>? onLoad() {
     loadLevel('Level1.tmx');
     gameRef.add(hud);
+    gameRef.playerData.score.value = 0;
+    gameRef.playerData.health.value = 5;
+
     return super.onLoad();
   }
 

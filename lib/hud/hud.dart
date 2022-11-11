@@ -1,5 +1,7 @@
 import 'package:flame/components.dart';
+import 'package:flame/input.dart';
 import 'package:flame_simple_platformer/game/game.dart';
+import 'package:flame_simple_platformer/overlays/pause_menu.dart';
 
 class Hud extends Component with HasGameRef<SimplePlatformer> {
   late final TextComponent scoreTextComponent;
@@ -34,6 +36,18 @@ class Hud extends Component with HasGameRef<SimplePlatformer> {
     gameRef.playerData.score.addListener(onScoreChanged);
 
     gameRef.playerData.health.addListener(onHealthChanged);
+
+    final pauseButton = SpriteButtonComponent(
+      button: Sprite(gameRef.spriteSheet, srcSize: Vector2.all(32), srcPosition: Vector2(32 * 4, 0)),
+      size: Vector2.all(32),
+      position: Vector2(gameRef.size.x / 2, 0),
+      anchor: Anchor.topCenter,
+      onPressed: () {
+        gameRef.pauseEngine();
+        gameRef.overlays.add(PauseMenu.id);
+      },
+    )..positionType = PositionType.viewport;
+    add(pauseButton);
 
     return super.onLoad();
   }

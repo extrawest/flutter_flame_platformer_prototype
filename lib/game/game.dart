@@ -5,7 +5,7 @@ import 'package:flame/input.dart';
 import 'package:flame_simple_platformer/model/gameplay.dart';
 import 'package:flame_simple_platformer/model/player_data.dart';
 
-class SimplePlatformer extends FlameGame with HasCollisionDetection, HasKeyboardHandlerComponents {
+class SimplePlatformer extends FlameGame with HasCollisionDetection, HasKeyboardHandlerComponents, HasTappables {
   late Image spriteSheet;
 
   final playerData = PlayerData();

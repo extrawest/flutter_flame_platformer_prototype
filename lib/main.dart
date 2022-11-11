@@ -3,6 +3,7 @@ import 'package:flame_simple_platformer/game/game.dart';
 import 'package:flame_simple_platformer/overlays/gameover_menu.dart';
 import 'package:flame_simple_platformer/overlays/main_menu.dart';
 import 'package:flame_simple_platformer/overlays/pause_menu.dart';
+import 'package:flame_simple_platformer/overlays/settings_menu.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
@@ -19,9 +20,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      theme: ThemeData.dark(),
       home: Scaffold(
         body: GameWidget<SimplePlatformer>(
           game: kDebugMode ? SimplePlatformer() : _game,
@@ -29,6 +28,7 @@ class MyApp extends StatelessWidget {
             MainMenu.id: (context, game) => MainMenu(gameRef: game),
             PauseMenu.id: (context, game) => PauseMenu(gameRef: game),
             GameOverMenu.id: (context, game) => GameOverMenu(gameRef: game),
+            SettingsMenu.id: (context, game) => SettingsMenu(gameRef: game),
           },
           initialActiveOverlays: const [MainMenu.id],
         ),

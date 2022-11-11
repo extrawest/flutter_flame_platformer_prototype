@@ -1,16 +1,29 @@
-# flame_simple_platformer
+# Simle Platformer by Roman Ovsepian
 
-A new Flutter project.
+## PROJECT INFO
 
-## Getting Started
+- **Simple Platfromer works with Flutter v3.6.0** 
+- **Flame 1.2.1, Flame tiled 1.6.0 and Flame audio 1.3.0** 
+- **Game is properly working on Flutter Web(keyboard controls)**
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+### Firebase hosting
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+1. In order to add new build to Firebase hosting, follow these commands
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+```shell
+firebase login
+```
+```shell
+firebase init
+```
+2. Choose account, then choose Hosting as an option
+3. Select Firebase project
+4. Run:
+```shell
+flutter build web
+```
+```shell
+firebase deploy
+```
+That's it.

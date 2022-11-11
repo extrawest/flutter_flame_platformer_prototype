@@ -1,5 +1,6 @@
 import 'package:flame/game.dart';
 import 'package:flame_simple_platformer/game/game.dart';
+import 'package:flame_simple_platformer/overlays/gameover_menu.dart';
 import 'package:flame_simple_platformer/overlays/main_menu.dart';
 import 'package:flame_simple_platformer/overlays/pause_menu.dart';
 import 'package:flutter/foundation.dart';
@@ -27,6 +28,7 @@ class MyApp extends StatelessWidget {
           overlayBuilderMap: {
             MainMenu.id: (context, game) => MainMenu(gameRef: game),
             PauseMenu.id: (context, game) => PauseMenu(gameRef: game),
+            GameOverMenu.id: (context, game) => GameOverMenu(gameRef: game),
           },
           initialActiveOverlays: const [MainMenu.id],
         ),

@@ -1,6 +1,7 @@
 import 'package:flame/components.dart';
 import 'package:flame/input.dart';
 import 'package:flame_simple_platformer/game/game.dart';
+import 'package:flame_simple_platformer/overlays/gameover_menu.dart';
 import 'package:flame_simple_platformer/overlays/pause_menu.dart';
 
 class Hud extends Component with HasGameRef<SimplePlatformer> {
@@ -64,6 +65,12 @@ class Hud extends Component with HasGameRef<SimplePlatformer> {
   }
 
   void onHealthChanged() {
-    healthTextComponent.text = 'x${gameRef.playerData.health.value}';
+    final healthValue = gameRef.playerData.health.value;
+    healthTextComponent.text = 'x$healthValue';
+
+    if (healthValue == 0) {
+      gameRef.pauseEngine();
+      gameRef.overlays.add(GameOverMenu.id);
+    }
   }
 }

@@ -1,7 +1,7 @@
 # Simle Platformer
-[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://gitlab.extrawest.com/roman.ovsepian/flame_square_boy/activity)
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)]()
 [![Maintaner](https://img.shields.io/static/v1?label=Roman%20Ovsepian&message=Maintainer&color=red)](mailto:roman.ovsepian@extrawest.com)
-[![Ask Me Anything !](https://img.shields.io/badge/Ask%20me-anything-1abc9c.svg)](mailto:roman.ovsepian@extrawest.com)
+[![Ask Me Anything !](https://img.shields.io/badge/Ask%20me-anything-1abc9c.svg)]()
 ![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)
 ![GitHub release](https://img.shields.io/badge/release-v1.0.0-blue)
 

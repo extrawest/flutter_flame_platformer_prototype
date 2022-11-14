@@ -1,13 +1,44 @@
-# Simle Platformer by Roman Ovsepian
+# Simle Platformer
 
 ## PROJECT INFO
 
-- **Simple Platfromer works with Flutter v3.6.0** 
+- **Simple Platfromer based on Flutter v3.6.0** 
 - **Flame 1.2.1, Flame tiled 1.6.0 and Flame audio 1.3.0** 
 - **Game is properly working on Flutter Web(keyboard controls)**
 
+## Features
 
-### Firebase hosting
+- Two levels
+- Collecting coins
+- Fighting with enemies
+- Settings menu
+- Audio effects and background music
+
+## Demo
+
+[Simple Platformer](https://simpleplatformer-d9ef7.web.app/)
+
+### Installing:
+
+**1) Clone this repo to your folder:**
+
+```
+git clone https://gitlab.extrawest.com/roman.ovsepian/flame_square_boy.git
+```
+
+**2. Change current directory to the cloned folder:**
+
+```
+cd flame_square_boy
+```
+
+**3) Get packages**
+
+```
+flutter pub get
+```
+
+## Firebase hosting
 
 1. In order to add new build to Firebase hosting, follow these commands
 
@@ -26,4 +57,9 @@ flutter build web
 ```shell
 firebase deploy
 ```
-That's it.
+
+Created by Roman Ovsepian
+
+[Extrawest.com](https://www.extrawest.com), 2022
+
+---

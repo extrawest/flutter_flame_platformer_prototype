@@ -1,4 +1,6 @@
 # Simle Platformer
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://gitlab.extrawest.com/roman.ovsepian/flame_square_boy/activity)
+[![Maintaner](https://img.shields.io/static/v1?label=Roman%20Ovsepian&message=Maintainer&color=red)](mailto:roman.ovsepian@extrawest.com)
 
 ## PROJECT INFO
 

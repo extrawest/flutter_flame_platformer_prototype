@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.9" tiledversion="1.9.2" orientation="orthogonal" renderorder="right-down" width="30" height="12" tilewidth="32" tileheight="32" infinite="0" nextlayerid="4" nextobjectid="44">
+ <tileset firstgid="1" source="Spritessheet.tsx"/>
+ <layer id="1" name="Tile Layer 1" width="30" height="12">
+  <data encoding="base64">
+   BwAAAAcAAAAHAAAABwAAAAcAAAAHAAAABgAAAAcAAAAHAAAABwAAAAcAAAAHAAAABwAAAAcAAAAHAAAABwAAAAcAAAAHAAAABwAAAAcAAAAHAAAABwAAAAcAAAAHAAAABwAAAAcAAAAHAAAABwAAAAcAAAAHAAAABwAAAAcAAAAHAAAABwAAAAcAAAAHAAAABgAAAAcAAAAHAAAABwAAAAcAAAAHAAAABwAAAAcAAAAHAAAABwAAAAcAAAAHAAAABwAAAAcAAAAHAAAABwAAAAcAAAAHAAAABwAAAAcAAAAHAAAABwAAAAcAAAAHAAAABwAAAAcAAAAHAAAABwAAAAcAAAAHAAAABgAAAAcAAAAHAAAABwAAAAcAAAAHAAAABwAAAAcAAAAHAAAABwAAAAcAAAAHAAAABwAAAAcAAAAHAAAABwAAAAcAAAAHAAAABwAAAAcAAAAHAAAABwAAAAcAAAAHAAAABwAAAAcAAAAHAAAABwAAAAcAAAAHAAAABgAAAAcAAAAHAAAABwAAAAcAAAAHAAAABwAAAAcAAAAHAAAABwAAAAcAAAAHAAAABwAAAAcAAAAHAAAABwAAAAcAAAAHAAAABwAAAAcAAAAHAAAABwAAAAcAAAAHAAAABwAAAAcAAAAHAAAABwAAAAcAAAAHAAAABgAAAAcAAAAHAAAABwAAAAcAAAAHAAAABwAAAAcAAAAHAAAABwAAAAcAAAAHAAAABwAAAAYAAAAGAAAABgAAAAYAAAAGAAAABwAAAAcAAAAHAAAABwAAAAcAAAAHAAAABwAAAAcAAAAHAAAABwAAAAcAAAAHAAAABgAAAAcAAAAHAAAABwAAAAcAAAAHAAAABwAAAAcAAAAHAAAABwAAAAcAAAAHAAAABwAAAAYAAAAGAAAABgAAAAYAAAAGAAAABwAAAAcAAAAHAAAABwAAAAcAAAAHAAAABgAAAAYAAAAGAAAABwAAAAcAAAAHAAAABwAAAAcAAAAHAAAABwAAAAcAAAAHAAAABwAAAAcAAAAHAAAABwAAAAcAAAAHAAAABwAAAAYAAAAGAAAABgAAAAYAAAAGAAAABwAAAAcAAAAHAAAABwAAAAcAAAAHAAAABgAAAAYAAAAGAAAABwAAAAcAAAAHAAAABwAAAAcAAAAHAAAABwAAAAcAAAAGAAAABgAAAAYAAAAGAAAABgAAAAYAAAAGAAAABgAAAAYAAAAGAAAABgAAAAYAAAAGAAAABwAAAAcAAAAHAAAABwAAAAcAAAAHAAAABgAAAAYAAAAGAAAABwAAAAcAAAAHAAAABwAAAAcAAAAHAAAABwAAAAcAAAAHAAAABwAAAAcAAAAHAAAABwAAAAcAAAAHAAAABwAAAAYAAAAGAAAABgAAAAYAAAAGAAAABwAAAAcAAAAHAAAABwAAAAcAAAAHAAAABgAAAAYAAAAGAAAABwAAAAcAAAAHAAAABwAAAAcAAAAHAAAABwAAAAcAAAAHAAAABwAAAAcAAAAHAAAABwAAAAcAAAAHAAAABwAAAAYAAAAGAAAABgAAAAYAAAAGAAAABwAAAAcAAAAHAAAABwAAAAcAAAAHAAAABgAAAAYAAAAGAAAABgAAAAYAAAAGAAAABgAAAAYAAAAGAAAABgAAAAYAAAAGAAAABgAAAAYAAAAGAAAABgAAAAYAAAAGAAAABgAAAAYAAAAGAAAABgAAAAYAAAAGAAAABgAAAAYAAAAGAAAABgAAAAYAAAAGAAAABgAAAAYAAAAGAAAABgAAAAYAAAAGAAAABgAAAAYAAAAGAAAABgAAAAYAAAAGAAAABgAAAAYAAAAGAAAABgAAAAYAAAAGAAAABgAAAAYAAAAGAAAABgAAAAYAAAAGAAAABgAAAAYAAAAGAAAABgAAAAYAAAAGAAAA
+  </data>
+ </layer>
+ <objectgroup id="2" name="SpawnPoints">
+  <object id="21" name="Enemy" gid="2" x="160" y="320" width="32" height="32">
+   <properties>
+    <property name="Target" type="object" value="40"/>
+   </properties>
+  </object>
+  <object id="22" name="Enemy" gid="2" x="608" y="128" width="32" height="32">
+   <properties>
+    <property name="Target" type="object" value="41"/>
+   </properties>
+  </object>
+  <object id="24" name="Coin" gid="4" x="736" y="128" width="32" height="32"/>
+  <object id="25" name="Coin" gid="4" x="640" y="128" width="32" height="32"/>
+  <object id="26" name="Coin" gid="4" x="800" y="96" width="32" height="32"/>
+  <object id="27" name="Coin" gid="4" x="896" y="128" width="32" height="32"/>
+  <object id="28" name="Coin" gid="4" x="896" y="224" width="32" height="32"/>
+  <object id="29" name="Coin" gid="4" x="480" y="320" width="32" height="32"/>
+  <object id="30" name="Coin" gid="4" x="384" y="320" width="32" height="32"/>
+  <object id="31" name="Coin" gid="4" x="576" y="320" width="32" height="32"/>
+  <object id="32" name="Coin" gid="4" x="256" y="160" width="32" height="32"/>
+  <object id="34" name="Door" gid="3" x="896" y="320" width="64" height="64">
+   <properties>
+    <property name="NextLevel" value="Level1.tmx"/>
+   </properties>
+  </object>
+  <object id="40" x="544" y="288">
+   <point/>
+  </object>
+  <object id="41" x="736" y="96">
+   <point/>
+  </object>
+  <object id="43" name="Player" gid="1" x="32" y="192" width="32" height="32"/>
+ </objectgroup>
+ <objectgroup id="3" name="Platforms">
+  <object id="35" x="0" y="192" width="96" height="192"/>
+  <object id="36" x="96" y="320" width="864" height="64"/>
+  <object id="37" x="608" y="128" width="160" height="192"/>
+  <object id="38" x="352" y="224" width="256" height="32"/>
+  <object id="39" x="192" y="0" width="32" height="192"/>
+ </objectgroup>
+</map>

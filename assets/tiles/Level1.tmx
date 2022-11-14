@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.9" tiledversion="1.9.2" orientation="orthogonal" renderorder="right-down" width="20" height="12" tilewidth="32" tileheight="32" infinite="0" nextlayerid="4" nextobjectid="59">
+ <tileset firstgid="1" source="Spritessheet.tsx"/>
+ <layer id="1" name="Tile Layer 1" width="20" height="12">
+  <data encoding="base64">
+   BwAAAAcAAAAHAAAABwAAAAcAAAAHAAAABwAAAAcAAAAHAAAABwAAAAcAAAAHAAAABwAAAAcAAAAHAAAABwAAAAcAAAAHAAAABwAAAAcAAAAHAAAABwAAAAcAAAAHAAAABwAAAAcAAAAHAAAABwAAAAcAAAAHAAAABwAAAAcAAAAHAAAABwAAAAcAAAAHAAAABwAAAAcAAAAHAAAABwAAAAcAAAAHAAAABwAAAAcAAAAHAAAABwAAAAcAAAAHAAAABwAAAAcAAAAHAAAABwAAAAcAAAAHAAAABwAAAAcAAAAHAAAABwAAAAcAAAAHAAAABwAAAAcAAAAHAAAABwAAAAcAAAAHAAAABwAAAAcAAAAHAAAABwAAAAcAAAAHAAAABwAAAAcAAAAHAAAABwAAAAcAAAAHAAAABwAAAAcAAAAHAAAABwAAAAcAAAAHAAAABwAAAAcAAAAHAAAABwAAAAcAAAAHAAAABwAAAAcAAAAHAAAABwAAAAcAAAAHAAAABwAAAAcAAAAHAAAABwAAAAcAAAAHAAAABwAAAAcAAAAHAAAABwAAAAcAAAAHAAAABwAAAAcAAAAHAAAABwAAAAcAAAAHAAAABwAAAAcAAAAHAAAABwAAAAcAAAAHAAAABwAAAAcAAAAHAAAABwAAAAcAAAAHAAAABwAAAAcAAAAHAAAABwAAAAcAAAAHAAAABwAAAAcAAAAGAAAABgAAAAYAAAAGAAAABgAAAAYAAAAHAAAABwAAAAcAAAAHAAAABwAAAAcAAAAHAAAABwAAAAcAAAAHAAAABwAAAAcAAAAHAAAABwAAAAYAAAAGAAAABgAAAAYAAAAGAAAABgAAAAcAAAAHAAAABwAAAAcAAAAHAAAABwAAAAYAAAAGAAAABgAAAAYAAAAHAAAABwAAAAcAAAAHAAAABgAAAAYAAAAGAAAABgAAAAYAAAAGAAAABwAAAAcAAAAHAAAABwAAAAcAAAAHAAAABgAAAAYAAAAGAAAABgAAAAcAAAAHAAAABwAAAAcAAAAGAAAABgAAAAYAAAAGAAAABgAAAAYAAAAGAAAABgAAAAYAAAAGAAAABgAAAAYAAAAGAAAABgAAAAYAAAAGAAAABgAAAAYAAAAGAAAABgAAAAYAAAAGAAAABgAAAAYAAAAGAAAABgAAAAYAAAAGAAAABgAAAAYAAAAGAAAABgAAAAYAAAAGAAAABgAAAAYAAAAGAAAABgAAAAYAAAAGAAAABgAAAAYAAAAGAAAABgAAAAYAAAAGAAAA
+  </data>
+ </layer>
+ <objectgroup id="2" name="SpawnPoints">
+  <object id="47" name="Coin" gid="4" x="192" y="256" width="32" height="32"/>
+  <object id="48" name="Coin" gid="4" x="288" y="256" width="32" height="32"/>
+  <object id="49" name="Coin" gid="4" x="352" y="160" width="32" height="32"/>
+  <object id="50" name="Coin" gid="4" x="448" y="192" width="32" height="32"/>
+  <object id="51" name="Coin" gid="4" x="512" y="192" width="32" height="32"/>
+  <object id="52" name="Door" gid="3" x="576" y="192" width="64" height="64">
+   <properties>
+    <property name="NextLevel" value="Level2.tmx"/>
+   </properties>
+  </object>
+  <object id="58" name="Player" gid="1" x="64" y="320" width="32" height="32"/>
+ </objectgroup>
+ <objectgroup id="3" name="Platforms">
+  <object id="40" x="0" y="320" width="640" height="64"/>
+  <object id="41" x="192" y="256" width="128" height="64"/>
+  <object id="42" x="448" y="192" width="192" height="128"/>
+ </objectgroup>
+</map>
